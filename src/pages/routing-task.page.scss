@@ -1,0 +1,11 @@
+div.note-wrap{
+  display: flex;
+  flex-flow: row nowrap;
+  div.content-wrap{
+    width: 85%;
+  }
+  button{
+    height: 1.5rem;
+    width: 20%;
+  }
+}

@@ -1,17 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Switch, Route} from 'react-router-dom';
 import RoutingTask1Page from '@pages/routing-task1.page';
 import RoutingTask2Page from '@pages/routing-task2.page';
 import './home.page.scss';
-import {useTypedSelector} from '@shared/hooks/typed.hook';
+import {useHistory} from 'react-router';
 
 const RoutingTaskPage = () => {
-    const {title, text} = useTypedSelector((state) => state.task3.task3[0]);
+    const history = useHistory();
     return (
         <div>
             <div>Start your routing task here</div>
-            <div>{title}</div>
-            <div>{text}</div>
+            <div>
+                <button onClick={() => history.push('/task3/reduct')} className="routing-button">
+                    show Task3
+                </button>
+            </div>
             <Switch>
                 <Route path="/task3/reduct">
                     <RoutingTask1Page />

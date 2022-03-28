@@ -1,22 +1,30 @@
 import {IAction} from '@shared/interfaces';
+import {Task3Actions} from '@store/actions';
 
-enum ActionsType {
-    GET_STATE = 'GET_STATE',
-}
 export interface ITask3State {
-    task3: any[];
+    notes: any[];
 }
 
 const initialState: ITask3State = {
-    task3: [{title: 'testTitle', text: 'some text'}],
+    notes: [{id: 0, title: 'testTitle', text: 'some text'}],
 };
 
 const Task3Reducer = (state = initialState, action: IAction): ITask3State => {
     switch (action.type) {
-        case ActionsType.GET_STATE:
+        case Task3Actions.ADD_NOTE: {
             const newState = {...state};
-            newState.task3.push({title: 'second title', text: action.data});
+            newState.notes.push(action.data);
             return newState;
+        }
+        case Task3Actions.DELETE_NOTE: {
+            const newState = {...state};
+            newState.notes.forEach((item, i) => {
+                if (item.id === action.data) {
+                    newState.notes.splice(i, 1);
+                }
+            });
+            return newState;
+        }
         default:
             return state;
     }
