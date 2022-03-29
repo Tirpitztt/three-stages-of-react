@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import './home.page.scss';
+import './table-task.page.scss';
+import {getDataReq} from '../REST/utils';
 import {addData, deleteData, getData, searchData, updateData} from '../REST/api';
 import {Table, PropTypes} from './table-task.table';
 import ModalAdd from '@pages/table-task.modal-add';
@@ -11,17 +12,17 @@ const TablePage = () => {
     const [propsObj, setPropsObj] = useState({});
     let currentId: number = 0;
     useEffect(() => {
-        getData().then((data) => {
-            setState(data);
-        });
+        getDataReq(setState);
     }, []);
     const addNote = (body: Record<string, unknown>) => {
         body.id = currentId + 1;
         addData(body);
+        getDataReq(setState);
     };
-    const delNote = (id: number): void => {
+    function delNote(id: number) {
         deleteData(id);
-    };
+        getDataReq(setState);
+    }
     const editNoteButton = (id: number) => {
         searchData(id).then((data) => {
             setPropsObj(data[0]);
@@ -31,13 +32,17 @@ const TablePage = () => {
     };
     const editNote = (id: number, body: Record<string, unknown>) => {
         updateData(id, body);
+        setEdit(false);
+        getDataReq(setState);
     };
     const showMod = () => {
         setShowModal(true);
     };
-    const hideModal = () => {
+    function hideModal() {
         setShowModal(false);
-    };
+        setEdit(false);
+        getDataReq(setState);
+    }
     let list: any[] = [];
     if (state) {
         list = state.map((item, i) => {
@@ -55,20 +60,25 @@ const TablePage = () => {
         });
     }
     return (
-        <div>
-            <div>Start your table here</div>
-            <div>
-                <button onClick={showMod}>add</button>
+        <div className="content-wrapper">
+            <div className="button-panel">
+                <button onClick={showMod} className="add-but">
+                    Add new
+                </button>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Location</th>
-                    </tr>
-                </thead>
-                <tbody>{list}</tbody>
-            </table>
+            <div className="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Commands</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>{list}</tbody>
+                </table>
+            </div>
             <ModalAdd
                 edit={edit}
                 show={showModal}
