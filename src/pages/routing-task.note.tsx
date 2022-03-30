@@ -1,15 +1,18 @@
 import React from 'react';
 
-const NoteCard = (props: any) => {
-    //const {title, text} = {...props};
-    console.log('props:' + props);
+type PropsType = {
+    title: string;
+    text: string;
+};
+
+const NoteCard: React.FC<PropsType> = ({title, text}) => {
     return (
-        <div>
-            <div>
-                <h4></h4>
+        <div className="note">
+            <div className="title-section">
+                <h3>{title}</h3>
             </div>
-            <div>
-                <p></p>
+            <div className="text-section">
+                <p>{text}</p>
             </div>
         </div>
     );

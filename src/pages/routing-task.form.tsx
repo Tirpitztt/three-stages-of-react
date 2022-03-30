@@ -11,10 +11,11 @@ const Task3Form = () => {
         dispatch(addNote(body));
     };
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input type="text" {...register('title')} />
-            <input type="text" {...register('text')} />
-            <input type="submit" />
+        <form onSubmit={handleSubmit(onSubmit)} className="form-cont">
+            <h4>Add the article</h4>
+            <input type="text" {...register('title')} placeholder="Title" className="title-inp" />
+            <textarea {...register('text')} placeholder="Text" />
+            <input type="submit" className="but-inp" />
         </form>
     );
 };
