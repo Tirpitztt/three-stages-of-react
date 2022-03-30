@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './table-task.page.scss';
 import {getDataReq} from '../REST/utils';
-import {addData, deleteData, getData, searchData, updateData} from '../REST/api';
-import {Table, PropTypes} from './table-task.table';
+import {addData, deleteData, searchData, updateData} from '../REST/api';
+import {Table} from './table-task.table';
 import ModalAdd from '@pages/table-task.modal-add';
 
 const TablePage = () => {
@@ -16,12 +16,18 @@ const TablePage = () => {
     }, []);
     const addNote = (body: Record<string, unknown>) => {
         body.id = currentId + 1;
-        addData(body);
-        getDataReq(setState);
+        addData(body).then((data) => {
+            if (data.status >= 200 && data.status < 400) {
+                getDataReq(setState);
+            }
+        });
     };
     function delNote(id: number) {
-        deleteData(id);
-        getDataReq(setState);
+        deleteData(id).then((data) => {
+            if (data.status >= 200 && data.status < 400) {
+                getDataReq(setState);
+            }
+        });
     }
     const editNoteButton = (id: number) => {
         searchData(id).then((data) => {
@@ -31,9 +37,12 @@ const TablePage = () => {
         setEdit(true);
     };
     const editNote = (id: number, body: Record<string, unknown>) => {
-        updateData(id, body);
-        setEdit(false);
-        getDataReq(setState);
+        updateData(id, body).then((data) => {
+            if (data.status >= 200 && data.status < 400) {
+                setEdit(false);
+                getDataReq(setState);
+            }
+        });
     };
     const showMod = () => {
         setShowModal(true);
@@ -41,7 +50,6 @@ const TablePage = () => {
     function hideModal() {
         setShowModal(false);
         setEdit(false);
-        getDataReq(setState);
     }
     let list: any[] = [];
     if (state) {

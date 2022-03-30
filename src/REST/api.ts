@@ -8,7 +8,10 @@ export const getData = () => {
 };
 
 export const addData = (body: Record<string, unknown>) => {
-    axios.post('http://localhost:3000/data', body);
+    const result = axios.post('http://localhost:3000/data', body).then((response) => {
+        return response;
+    });
+    return result;
 };
 
 export const searchData = (id: number) => {
@@ -19,9 +22,15 @@ export const searchData = (id: number) => {
 };
 
 export const updateData = (id: number, body: Record<string, unknown>) => {
-    axios.patch(`http://localhost:3000/data/${id}`, body);
+    const result = axios.patch(`http://localhost:3000/data/${id}`, body).then((response) => {
+        return response;
+    });
+    return result;
 };
 
 export const deleteData = (id: number) => {
-    axios.delete(`http://localhost:3000/data/${id}`);
+    const result = axios.delete(`http://localhost:3000/data/${id}`).then((response) => {
+        return response;
+    });
+    return result;
 };
