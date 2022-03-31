@@ -1,0 +1,143 @@
+div.task3-wrap{
+  position: relative;
+  div.navigation-wrap{
+    width: 100%;
+    height: 2rem;
+    border-bottom: 1px solid gray;
+    div.tabs{
+      width:120px;
+      height: 2rem;
+      display: inline-block;
+      margin-left: 20px;
+      border-top: 1px solid gray;
+      border-left: 1px solid gray;
+      border-right: 1px solid gray;
+      background-color: gray;
+      cursor: pointer;
+    }
+    div.active{
+      background-color: white;
+      border-bottom:5px solid white;
+    }
+  }
+  div.task-wrap{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    div.form-side{
+      padding: 15px;
+      width: 45%;
+      display: flex;
+      justify-content: center;
+      div.form-wrap{
+        margin-top: 30px;
+        width: 65%;
+        height: 400px;
+        form.form-cont{
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: space-between;
+          align-items: center;
+          input.title-inp{
+            width: 80%;
+            height: 2.5rem;
+          }
+          textarea{
+            width: 80%;
+            height: 150px;
+          }
+          input.but-inp{
+            width: 50%;
+            height: 2.5rem;
+          }
+        }
+      }
+    }
+    div.list-side{
+      padding: 15px;
+      width: 50%;
+      border-left: 1px solid gray;
+      div.note-wrap{
+        display: flex;
+        flex-flow: row nowrap;
+        border-bottom: 1px solid gray;
+        div.content-wrap{
+          width: 85%;
+        }
+        div.button-wrap{
+          width: 20%;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          button{
+            height: 2rem;
+            width: 120px;
+            cursor: pointer;
+            background-color: #FFA07A;
+            color: beige;
+            border: none;
+            border-radius: 3px;
+            box-shadow: 1px 1px 1px gray;
+          }
+        }
+      }
+    }
+  }
+  div.note-desk{
+    margin-top: 20px;
+    width: 95%;
+    background-color: #A0522D;
+    padding: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-around;
+    div.note{
+      width: 250px;
+      height: 250px;
+      background-color: #ffc;
+      padding: 5px;
+      margin-top: 15px;
+      box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+      &:nth-of-type(2n){
+        transform: rotate(2deg);
+        position: relative;
+        top: -6px;
+      }
+      &:nth-of-type(3n){
+        transform: rotate(-3deg);
+        position: relative;
+        top: -5px;
+      }
+      &:nth-of-type(5n){
+        transform: rotate(4deg);
+        position: relative;
+        top: 5px;
+      }
+      &:hover{
+        box-shadow: 10px 10px 7px rgba(0,0,0,.7);;
+        transform: scale(1.25);
+        position: relative;
+        z-index: 100;
+      }
+      div.title-section{
+        width: 100%;
+        text-align: center;
+        h3{
+          font-family: Cantarell;
+        }
+      }
+      div.text-section{
+        width: 100%;
+        text-align: left;
+        p{
+          font-family: Cantarell;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
