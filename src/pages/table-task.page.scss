@@ -1,0 +1,141 @@
+div.content-wrapper{
+  width: 100%;
+  div.button-panel{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: left;
+    align-items: center;
+    button.add-but{
+      margin-left: 1rem;
+      width: 70px;
+      height: 2rem;
+      border-radius: 3px;
+      border: 1px solid gray;
+      cursor: pointer;
+    }
+  }
+  div.table-wrapper{
+    width: 100%;
+    table{
+      width: 50%;
+      border: 1px solid gray;
+      border-collapse: collapse;
+      border-radius: 5px;
+      tr{
+        height: 2rem;
+        th{
+          text-align: left;
+          width:25%;
+          padding-left: 1rem;
+          border-bottom: 1px solid gray;
+          &:first-of-type{
+            border-right: 1px solid gray;
+          }
+          &:nth-of-type(2){
+            border-right: 1px solid gray;
+          }
+        }
+        td{
+          width:25%;
+          border-right: 1px solid gray;
+          padding-left: 1rem;
+          button.but{
+            width: 70px;
+            height: 1.7rem;
+            border: 1px solid gray;
+            border-radius: 3px;
+            cursor: pointer;
+          }
+          button.del-but{
+            background-color: #FA8072;
+            color: beige;
+          }
+          &:nth-of-type(3){
+            border-right: none;
+          }
+          &:last-of-type{
+            border-right: none;
+          }
+        }
+        &:nth-child(2n+1){
+          background-color: gainsboro;
+        }
+      }
+    }
+  }
+}
+div.class-hide{
+  display: none;
+}
+div.class-show{
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  z-index: 90000;
+  div.modal-card{
+    width: 500px;
+    height: 300px;
+    background-color: beige;
+    border-radius: 15px;
+    border: 1px solid gray;
+    position: absolute;
+    top: 30vh;
+    left: 35vw;
+    box-shadow: 2px 2px 5px black;
+    div.close-modal{
+      width: 100%;
+      p{
+        width: 80px;
+        cursor: pointer;
+        float: right;
+        text-align: center;
+        &:hover{
+          font-weight: bold;
+          color: red;
+        }
+      }
+    }
+    div.form-wrapper{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      form{
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        div.input-wrap{
+          display: flex;
+          flex-flow: column;
+          p{
+            margin-top: 0;
+            text-align: center;
+          }
+          input{
+            margin: 1rem auto;
+            width: 90%;
+            height: 2rem;
+          }
+        }
+        input.sub-but{
+          width: 50%;
+          height: 2rem;
+          background-color: #00FF7F;
+          margin: .5rem auto;
+          border-radius: 5px;
+          border: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
