@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './table-task.page.scss';
 import {useForm} from 'react-hook-form';
 
@@ -21,7 +21,7 @@ const ModalAdd: React.FC<PropsTypesModal> = ({edit, show, obj, hide, addNote, ed
         handleSubmit,
         setValue,
         reset,
-        formState: {errors, isDirty, isSubmitting, touchedFields, submitCount},
+        formState: {isDirty},
     } = useForm<FormInputs>();
     if (edit && !isDirty) {
         setValue('name', obj ? obj.name : '');
