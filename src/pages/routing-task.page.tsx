@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './routing-task.page.scss';
 import {Switch, Route} from 'react-router-dom';
 import RoutingTask1Page from '@pages/routing-task1.page';
