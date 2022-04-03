@@ -18,6 +18,21 @@ div.portfolio-page{
         font-size: 7rem;
         text-align: center;
       }
+      @media (max-width: 1240px) {
+        h1{
+          font-size: 6rem;
+        }
+      }
+      @media (max-width: 1070px) {
+        h1{
+          font-size: 5rem;
+        }
+      }
+      @media (max-width: 542px) {
+        h1{
+          font-size: 3rem;
+        }
+      }
     }
   }
   div.portfolio-content{
@@ -33,8 +48,13 @@ div.portfolio-page{
           font-family: inglobal-bold;
           text-align: center;
         }
+        &:first-letter{
+          color: firebrick;
+          font-size: 2rem;
+        }
         ol.list-todo{
           counter-reset: li;
+          margin-left: 0;
           li{
             display: inline-block;
             width: 20%;
@@ -59,6 +79,33 @@ div.portfolio-page{
               margin-top: 2rem;
             }
           }
+          @media (max-width: 542px) {
+            li {
+              width: 80%;
+            }
+          }
+          @media (max-width: 375px) {
+            li {
+              width: 90%;
+            }
+          }
+        }
+      }
+      @media (max-width: 800px) {
+        div.steps-order {
+          height: 45vh;
+        }
+      }
+      @media (max-width: 542px) {
+        div.steps-order, div.text-annotation-wrap {
+          height: 80vh;
+        }
+      }
+      @media (max-width: 391px) {
+        div.steps-order, div.text-annotation-wrap {
+          height: 100vh;
+          overflow: hidden;
+          overflow-y: auto;
         }
       }
     }
@@ -67,6 +114,10 @@ div.portfolio-page{
       height: 40vh;
       h2{
         text-align: center;
+      }
+      &:first-letter{
+        color: firebrick;
+        font-size: 2rem;
       }
       div.text-annotation{
         font-family: inglobal-normal;
@@ -111,6 +162,16 @@ div.portfolio-page{
       }
       p.p-error{
         color: #FA8072;
+      }
+    }
+    @media (max-width: 360px) {
+      form{
+        width: 90%;
+      }
+    }
+    @media (max-width: 542px) {
+      form{
+        width: 90%;
       }
     }
   }
